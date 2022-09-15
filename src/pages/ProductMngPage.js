@@ -14,7 +14,6 @@ import ProductForm from "../components/ProductForm";
 import addComma from "../Utils";
 
 const ProductMngPage = (props) => {
-
   const SERVER_URL = "http://localhost:4000";
 
   // 상품정보

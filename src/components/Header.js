@@ -3,32 +3,10 @@ import {Button, Navbar, Container, Nav, NavDropdown, Row, Col} from 'react-boots
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Route, Routes, useHistory} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import { IoCartOutline } from "react-icons/io5";
 
 const Header = () => {
-    return (<>
-        {/* <Navbar bg="light" expand="lg">
-            <Container>
-                <Navbar.Brand>GREEN MALL</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto">
-                    <Nav.Link>Home</Nav.Link>
-                    <NavDropdown title="카테고리" id="category-nav-dropdown">
-                        <Nav.Item>
-                          <Link to="/category/interior">인테리어</Link>
-                        </Nav.Item>
-                        <Link to="/category/furniture">가구</Link>
-                        <Link to="/category/plant">식물</Link>
-                    </NavDropdown>
-                    <NavDropdown title="관리자" id="admin-nav-dropdown">
-                        <NavDropdown.Item>상품 등록/수정</NavDropdown.Item>
-                        <NavDropdown.Item>상품 조회</NavDropdown.Item>                       
-                    </NavDropdown>
-                </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar> */}
+    return (<>       
         <Navbar bg="light" variant="light">
             <Container>
             <Navbar.Brand as={Link} to="/">GREEN MALL</Navbar.Brand>
@@ -39,6 +17,7 @@ const Header = () => {
                 <Nav.Link as={Link} to="/category/furniture">가구</Nav.Link>
                 <Nav.Link as={Link} to="/category/plant">식물/데코</Nav.Link>
                 <Nav.Link as={Link} to="/productMng">상품관리</Nav.Link>
+                <Nav.Link as={Link} to="/"><IoCartOutline/></Nav.Link>
             </Nav>
             </Container>
         </Navbar>
