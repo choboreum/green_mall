@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Container from 'react-bootstrap/Container';
 
-const Main = () => {
+const MainPage = () => {
     return (
         <Fragment>
              <Container>
@@ -11,4 +11,4 @@ const Main = () => {
     );
   }
   
-  export default Main;
+  export default MainPage;

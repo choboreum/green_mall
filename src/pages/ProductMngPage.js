@@ -13,14 +13,12 @@ import ProductList from "../components/ProductList";
 import ProductForm from "../components/ProductForm";
 import addComma from "../Utils";
 
-const ProductMng = () => {
+const ProductMngPage = (props) => {
+
   const SERVER_URL = "http://localhost:4000";
 
-  // 상품 리스트 (arr)
-  const [productList, setProductList] = useState([]);
-
-  // 상품 상세정보 (obj)
-  const [productDetail, setProductDetail] = useState({
+  // 상품정보
+  const [productInfo, setProductInfo] = useState({
     product_nm: "",
     product_summary: "",
     item_price: "",
@@ -55,7 +53,7 @@ const ProductMng = () => {
           data[key].image = `${SERVER_URL}/images/` + data[key].image; // 이미지 경로 세팅. DB에는 파일명만 저장되기 때문에 경로로 다시 변환해주기
         }
 
-        setProductList(res.data);
+        props.setProductList(res.data);
       })
       .catch(function (err) {
         console.log(err);
@@ -81,7 +79,7 @@ const ProductMng = () => {
 
         data.image = `${SERVER_URL}/images/` + data.image;
 
-        setProductDetail(data);
+        props.setProductDetail(data);
       })
       .catch(function (err) {
         console.log(err);
@@ -100,7 +98,7 @@ const ProductMng = () => {
     const url = `${SERVER_URL}/api/register`;
 
     const formData = new FormData();
-    formData.append("productDetail", JSON.stringify(productDetail));
+    formData.append("productDetail", JSON.stringify(props.productDetail));
     formData.append("img", content);
 
     axios
@@ -137,8 +135,8 @@ const ProductMng = () => {
   const getValue = (e) => {
     let { name, value } = e.target;
 
-    setProductDetail({
-      ...productDetail,
+    props.setProductDetail({
+      ...props.productDetail,
       [name]: value,
     });
   };
@@ -176,7 +174,7 @@ const ProductMng = () => {
         </div>
 
         <ProductList
-          productList={productList}
+          productList={props.productList}
           Button={Button}
           addComma={addComma}
           editProduct={editProduct}
@@ -184,7 +182,7 @@ const ProductMng = () => {
 
         {isModalOpen && (
           <ProductForm
-            productDetail={productDetail}
+            productDetail={props.productDetail}
             registerItem={registerItem}
             getValue={getValue}
             setContent={setContent}
@@ -198,4 +196,4 @@ const ProductMng = () => {
   );
 };
 
-export default ProductMng;
+export default ProductMngPage;

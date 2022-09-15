@@ -36,7 +36,12 @@
 
 
 
-/* hy */
+/* hy 추가 */
+a, a:link, a:hover {
+  color: #111 !important;
+  text-decoration: none;
+}
+
 .tit-lg {
   font-size: 18px; 
 }

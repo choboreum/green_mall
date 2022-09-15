@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 
-const Signup = () => {
+const LoginPage = () => {
     return (
         <React.Fragment>
-            회원가입 페이지
+            로그인페이지
         </React.Fragment>
     );
   }
   
-  export default Signup;
+  export default LoginPage;
