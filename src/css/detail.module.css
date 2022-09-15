@@ -1,0 +1,48 @@
+.title{
+    font-size: 20px;
+    font-weight: 700;
+    margin: 30px 0 10px;
+}
+
+.price{
+    color: #666;
+}
+.salePrice span{
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1em;
+    border-radius: 9px;
+    background: #27ae60;
+    padding: 2px 14px 6px;
+}
+
+.delivery{
+    border-top: 1px solid #ccc;
+}
+
+.selling{
+    margin-bottom: 50px;
+}
+.selling strong{
+    display: block;
+    margin-bottom: 10px;
+}
+.selling span{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #666;
+}
+.selling li{
+    font-size: 13px;
+    margin-bottom: 1px;
+}
+
+.infoTable{
+    width: calc(100% - var(--bs-gutter-x) * .9);
+    margin: 0 calc(var(--bs-gutter-x) * .5);
+    font-size: 13px;
+}

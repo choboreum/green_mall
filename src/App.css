@@ -1,3 +1,5 @@
+/* brand-color : #27ae60 */
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
 
 * {
@@ -29,6 +31,20 @@
 .App-link {
   color: #61dafb;
 }
+
+table caption{visibility: hidden;font-size: 0;}
+
+.container{
+  max-width: 720px !important;
+}
+.container#wrap{
+  margin-bottom: 100px;
+}
+
+.mt20{margin-top: 20px !important;}
+.mb20{margin-bottom: 20px !important;}
+.pt20{padding-top: 20px !important;}
+.pb20{padding-bottom: 20px !important;}
 
 .container {
   max-width: 720px !important;  
