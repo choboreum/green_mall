@@ -5,7 +5,7 @@
  */
 
 import React, { Fragment, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import addComma from "../Utils.js";
 import { Container } from "react-bootstrap";
@@ -24,6 +24,9 @@ const antIcon = (
 
 // 카테고리 페이지
 const CategoryPage = () => {
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
   let { id } = useParams(); // 카테고리 id
   let [products, setProducts] = useState([]); // 상품 리스트 []
   let [productCnt, setProductCnt] = useState(0); // 상품 갯수 number
@@ -195,7 +198,7 @@ const CategoryPage = () => {
         {products.map((a, i) => {
           return (
             <Fragment key={i}>
-              <Col onClick={() => {document.location.href=`/detail/${a.PRODUCT_ID}`;}} span={12} style={{ margin: "18px 0" }}>
+              <Col onClick={() => {navigate(`/detail/${a.PRODUCT_ID}`); setOpen(false);}} span={12} style={{ margin: "18px 0" }}>
                 {a.IMAGE !== "" ? (
                   <img
                     src={a.IMAGE}
