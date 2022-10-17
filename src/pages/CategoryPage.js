@@ -195,7 +195,7 @@ const CategoryPage = () => {
         {products.map((a, i) => {
           return (
             <Fragment key={i}>
-              <Col span={12} style={{ margin: "18px 0" }}>
+              <Col onClick={() => {document.location.href=`/detail/${a.PRODUCT_ID}`;}} span={12} style={{ margin: "18px 0" }}>
                 {a.IMAGE !== "" ? (
                   <img
                     src={a.IMAGE}

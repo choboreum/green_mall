@@ -56,7 +56,7 @@ const FixedHeader = () => {
             </h4>
           </Col>
           <Col span={8} style={{ textAlign: "right" }}>
-            <IoCartOutline style={{ fontSize: "24px" }} />
+            <IoCartOutline onClick={() => {navigate("/cart"); setOpen(false);}} style={{ fontSize: "24px" }} />
           </Col>
         </Row>
       </Header>

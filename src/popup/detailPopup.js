@@ -1,7 +1,4 @@
 import React, { Component, Fragment, useState } from 'react';
-import {Row} from 'react-bootstrap'
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import { Select, InputNumber } from 'antd';
 import { useDispatch } from 'react-redux'
 import { addItem } from '../store/Store'
