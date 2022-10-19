@@ -28,6 +28,16 @@
   max-width: 720px !important;  
 }
 
+/* 공통 */
+table caption{
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
+  color: transparent;
+  position: absolute;
+  left: 99999%;
+  overflow: hidden;
+}
 
 
 /* 하연 추가 */

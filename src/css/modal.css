@@ -91,6 +91,12 @@
 .priceBox{
     display: flex;
     justify-content: space-between;
+    position: relative;
+    margin-top: 10px;
+}
+
+.priceBox sup{
+    position: absolute;
 }
 
 .priceBox > div{
@@ -134,4 +140,17 @@
     display: inline-block;
     margin-left: 20px;
     font-size: 20px;
+}
+
+.cart {
+    padding: 12px 16px;
+    text-align: right;
+}
+.cart button {
+    width: 100%;
+    padding: 6px 12px;
+    color: #fff;
+    background-color: #6c757d;
+    border-radius: 5px;
+    font-size: 13px;
 }
