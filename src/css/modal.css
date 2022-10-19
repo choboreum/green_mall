@@ -88,11 +88,23 @@
     margin-bottom: 20px !important;
 }
 
+.selectBox{
+    width: 100%;
+    background: transparent;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+.selectBox optioin{
+    background: #fff;
+}
+
 .priceBox{
     display: flex;
     justify-content: space-between;
     position: relative;
-    margin-top: 10px;
+    top: 10px;
+    margin-top: 15px;
 }
 
 .priceBox sup{
@@ -140,17 +152,4 @@
     display: inline-block;
     margin-left: 20px;
     font-size: 20px;
-}
-
-.cart {
-    padding: 12px 16px;
-    text-align: right;
-}
-.cart button {
-    width: 100%;
-    padding: 6px 12px;
-    color: #fff;
-    background-color: #6c757d;
-    border-radius: 5px;
-    font-size: 13px;
 }
