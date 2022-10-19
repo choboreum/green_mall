@@ -6,7 +6,7 @@ import styles from './../css/cart.module.css';
 
 const CartPage = (props) => {
     // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
-    const { open, close, header, title, price } = props;
+    const { open, close, header, title, price, stock, delivery, freeDelivery } = props;
 
     const state = useSelector((state)=>{
         return state
@@ -27,6 +27,7 @@ const CartPage = (props) => {
                             <th>상품명</th>
                             <th>수량</th>
                             <th>가격</th>
+                            <th>배송</th>
                             <th>수량 변경하기</th>
                             <th>&nbsp;</th>
                         </tr>
@@ -42,6 +43,7 @@ const CartPage = (props) => {
                                                 <td>{state.cart[i].name}</td>
                                                 <td>{state.cart[i].count}</td>
                                                 <td>{state.cart[i].price}</td>
+                                                <td>{state.cart[i].delivery}</td>
                                                 <td>
                                                 <button onClick={()=>{
                                                     dispatch(addCount(state.cart[i].id))

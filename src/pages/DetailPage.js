@@ -77,7 +77,17 @@ const DetailPage = () => {
                     <DeliverylInfo />
                     <div className="d-grid gap-2">
                         <Button variant="secondary" onClick={openModal}>구매하기</Button>
-                        <DetailPopup open={modalOpen} close={closeModal} header="장바구니 담기" id={productDetail.PRODUCT_ID} title={productDetail.PRODUCT_NM} price={productDetail.SALE_PRICE} sale={productDetail.DISCOUNTED_RATE} stock={productDetail.STOCK}></DetailPopup>
+                        <DetailPopup
+                            open={modalOpen}
+                            close={closeModal}
+                            header="장바구니 담기"
+                            id={productDetail.PRODUCT_ID}
+                            title={productDetail.PRODUCT_NM}
+                            price={productDetail.SALE_PRICE}
+                            sale={productDetail.DISCOUNTED_RATE}
+                            stock={productDetail.STOCK}
+                            delivery={productDetail.DELIVERY_DVSN}
+                            freeDelivery={productDetail.FREE_DELIVERY_DVSN}></DetailPopup>
                     </div>
                     <Row className={`mt20 mb20 pt20`}>
                         <Col sm={2}><strong>상품 정보</strong></Col>

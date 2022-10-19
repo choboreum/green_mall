@@ -6,14 +6,14 @@ import './../css/modal.css';
 import 'antd/dist/antd.css';
 import styled from 'styled-components';
 import addComma from "../Utils";
+import {today} from "@progress/kendo-react-dateinputs/dist/es/messages";
 
 const DetailPopup = (props) => {
     // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
-    const { open, close, header, id, title, price, sale, stock } = props;
+    const { open, close, header, id, title, price, sale, stock, delivery, freeDelivery } = props;
 
     let [count, setCount] = useState(1);  // 수량
     let [totalPrice, setTotalPrice] =  useState('');  // 총금액
-    //const [Selected, setSelected] = useState(""); // 제품옵션선택
     let [select, setSelect] =  useState('1');  // 배달옵션선택
 
     //select
@@ -27,8 +27,9 @@ const DetailPopup = (props) => {
     };
     const onSelect = (event) => {
         console.log(event);
-        console.log(event.target.value);
         setSelect(event.target.value);
+        if(event.target.value === '2') console.log(event.target.value, '오늘출발')
+        else if(event.target.value === '3') console.log(event.target.value, '일반배송')
     }
 
     //option-count&price
@@ -55,6 +56,7 @@ const DetailPopup = (props) => {
     const goCart = () => {
         alert('장바구니에 담겼습니다 🧺')
         close()
+        dispatch(addItem( {id: id, name: title, price: totalPrice, count: count, delivery: delivery} ))
     }
 
     return (
@@ -96,7 +98,6 @@ const DetailPopup = (props) => {
             </main>
             <footer>
                 <button className="cart" onClick={()=>{
-                    //dispatch(addItem( {id: {id}, name: {title}, price: {totalPrice}, count: {count}} ))
                     if(select === '1') alert('택배 옵션을 선택해주세요 🚛')
                     else goCart()
                 }}
