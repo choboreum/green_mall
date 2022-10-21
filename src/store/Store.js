@@ -31,8 +31,7 @@ let cart = createSlice({
     }
 })
 
-export let { addCount, addItem } = cart.actions
-export let { minusCount, deleteCount } = cart.actions
+export let { addCount, addItem, minusCount, deleteCount } = cart.actions
 
 export default configureStore({
     reducer: {

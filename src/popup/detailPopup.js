@@ -34,9 +34,11 @@ const DetailPopup = (props) => {
 
     //option-count&price
     let salePrice = (price*(100-sale)) /100
-    const addCount = function(type) {
-        if(count < stock) count++;
-        else if(count >= stock) alert('1인 구매 하실 수 있는 최대 수량은 '+ stock +'개 입니다.')
+    const addCount = function() {
+        /*if(count < stock) count++;
+        else if(count >= stock) alert('1인 구매 하실 수 있는 최대 수량은 '+ stock +'개 입니다.')*/
+        if(count < 5) count++;
+        else if(count >= 5) alert('1인 구매 하실 수 있는 최대 수량은 5개 입니다.')
 
         setCount(count);
         let totalPrice = salePrice * count;
@@ -56,8 +58,34 @@ const DetailPopup = (props) => {
     const goCart = () => {
         alert('장바구니에 담겼습니다 🧺')
         close()
-        dispatch(addItem( {id: id, name: title, price: totalPrice, count: count, delivery: delivery} ))
+        dispatch(addItem( {
+                id: id,
+                name: title,
+                price: totalPrice,
+                count: count,
+                delivery: delivery
+            } ))
     }
+
+    useEffect(()=>{
+        console.log(id)
+
+        let getId = localStorage.getItem('watched') //로컬스토리지에 담을 watched를 꺼내서, 변수 getId에 담는다
+        // debugger;
+        console.log(getId)
+
+        getId = JSON.parse(getId) //꺼낸 getId는 JSON자료이기 때문에 array/object로 바꿔 다시 변수에 담는다
+        getId.push(id) //변수에 title.id를 자료를 추가한다
+
+        getId = new Set(getId) //중복방지
+        getId = Array.from(getId) //중복방지된 자료를 array로 담는다=중복방지가 되면서 array형식으로 담음
+        // debugger;
+        console.log(getId)
+
+        localStorage.setItem('watched', JSON.stringify(getId)) //getId는 array/object이기 떄문에 다시 JSON으로 변환하여 로컬스토리지에 담는다
+        // debugger;
+        console.log(localStorage.getItem('watched'))
+    }, [])
 
     return (
         // 모달이 열릴때 openModal 클래스가 생성된다.

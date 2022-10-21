@@ -3,6 +3,7 @@ import { Container, Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { addCount, addItem, minusCount, deleteCount } from './../store/Store'
 import styles from './../css/cart.module.css';
+import addComma from "../Utils";
 
 const CartPage = (props) => {
     // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
@@ -42,7 +43,7 @@ const CartPage = (props) => {
                                                 <td>{state.cart[i].id}</td>
                                                 <td>{state.cart[i].name}</td>
                                                 <td>{state.cart[i].count}</td>
-                                                <td>{state.cart[i].price}</td>
+                                                <td>{addComma(state.cart[i].price)}</td>
                                                 <td>{state.cart[i].delivery}</td>
                                                 <td>
                                                 <button onClick={()=>{
