@@ -18,8 +18,8 @@ const { Content } = Layout;
 
 const App = () => {
 
-  const [productList, setProductList] = useState([]);  // 상품 리스트
-  const [productDetail, setProductDetail] = useState({});  // 상품 상세
+  // const [productList, setProductList] = useState([]);  // 상품 리스트
+  // const [productDetail, setProductDetail] = useState({});  // 상품 상세
 
 
   return (

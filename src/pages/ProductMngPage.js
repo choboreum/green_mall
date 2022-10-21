@@ -8,6 +8,8 @@
  import axios from "axios";
  import { Button, Input, Form, Radio, Modal, message } from "antd";
  import ProductList from "../components/ProductList";
+ import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
  
  const ProductMngPage = () => {
    const SERVER_URL = "http://localhost:4000";
@@ -25,13 +27,13 @@
      sale_price: "",
      discounted_rate: "",
      delivery_dvsn: "",
-     detail_content: "",
    });
  
    const [img, setImg] = useState("");
    const [previewImg, setPreviewImg] = useState(null);
    const [isModalOpen, setIsModalOpen] = useState(false);
    const [editYn, setEditYn] = useState(false);
+   const [detailContent, setDetailContent] = useState("");
  
    const handleOk = () => {
      setIsModalOpen(false);
@@ -114,6 +116,7 @@
  
      const formData = new FormData();
      formData.append("productForm", JSON.stringify(productForm));
+     formData.append("detailContent", detailContent);
      formData.append("img", img);
  
      axios
@@ -335,6 +338,15 @@
                  <Radio value="오늘출발">오늘출발</Radio>
                </Radio.Group>
              </Form.Item>
+             <CKEditor
+            editor={ClassicEditor}
+            data="<p>Hello from CKEditor 5!</p>"
+            onChange={(event, editor) => {
+              const data = editor.getData();
+              console.log({ event, editor, data });
+              setDetailContent(data);
+            }}
+          />
            </Form>
          )}
        </Modal>

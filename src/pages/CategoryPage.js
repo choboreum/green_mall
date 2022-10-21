@@ -36,6 +36,10 @@ const CategoryPage = () => {
   let [saleType, setSaleType] = useState(false);
   let [loading, setLoading] = useState(false);
 
+  const SERVER_URL = "http://localhost:4000";
+
+  const navigate = useNavigate();
+
   // 정렬 드롭다운 메뉴
   const menu = (
     <Menu
@@ -71,8 +75,6 @@ const CategoryPage = () => {
     pageTitle(id);
     setSelected("신상품순");
   }, [id]);
-
-  const SERVER_URL = "http://localhost:4000";
 
   /**
    * 상품 카테고리 리스트 조회

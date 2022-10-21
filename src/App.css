@@ -41,6 +41,9 @@ table caption{
 
 
 /* 하연 추가 */
+.productInfo img {
+  width: 100%;
+}
 .g-menu p {
   font-size: 15px;
   font-weight: 500;
