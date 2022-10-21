@@ -115,13 +115,17 @@ const CategoryPage = () => {
     switch (sort_type) {
       case 1:
         copy.sort((a, b) => {
-          return parseFloat(a.SALE_PRICE) - parseFloat(b.SALE_PRICE);
+          let dis_price1 = (a.SALE_PRICE * (100 - a.DISCOUNTED_RATE)) / 100;
+          let dis_price2 = (b.SALE_PRICE * (100 - b.DISCOUNTED_RATE)) / 100;
+          return parseFloat(dis_price1) - parseFloat(dis_price2);
         });
         setSelected("낮은가격순");
         break;
       case 2:
         copy.sort((a, b) => {
-          return parseFloat(b.SALE_PRICE) - parseFloat(a.SALE_PRICE);
+          let dis_price1 = (a.SALE_PRICE * (100 - a.DISCOUNTED_RATE)) / 100;
+          let dis_price2 = (b.SALE_PRICE * (100 - b.DISCOUNTED_RATE)) / 100;
+          return parseFloat(dis_price2) - parseFloat(dis_price1);
         });
         setSelected("높은가격순");
         break;
@@ -190,7 +194,7 @@ const CategoryPage = () => {
       <div className="flex">
         <span className="tit-sm">{productCnt}개의 상품</span>
         <Dropdown overlay={menu} trigger={["click"]}>
-          <div style={{cursor: "pointer"}}>
+          <div style={{ cursor: "pointer" }}>
             <span className="txt-md mr5">{selected}</span>
             <DownOutlined />
           </div>
@@ -232,18 +236,16 @@ const CategoryPage = () => {
                   원
                 </p>
 
-                {a.DELIVERY_DVSN === "오늘출발" ? (
-                  <Tag color="purple">
-                    <TbTruckDelivery /> {a.DELIVERY_DVSN}
-                  </Tag>
-                ) : null}
+                  {a.DELIVERY_DVSN === "오늘출발" ? (
+                    <Tag color="purple">
+                      <TbTruckDelivery /> {a.DELIVERY_DVSN}
+                    </Tag>
+                  ) : null}
 
-                {a.FREE_DELIVERY_DVSN === "무료배송" ? (
-                  <Tag color="blue">
-                    {a.FREE_DELIVERY_DVSN}
-                  </Tag>
-                ) : null}
-
+                  {a.FREE_DELIVERY_DVSN === "무료배송" ? (
+                    <Tag color="blue">{a.FREE_DELIVERY_DVSN}</Tag>
+                  ) : null}
+                </div>
                 <button className="heartButton" onClick={fillHeart}>
                   {heart ? (
                     <IoMdHeart style={{ color: "#ff4800" }} />
