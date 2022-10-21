@@ -106,6 +106,7 @@
   position: absolute;
   top: 15px;
   right: 20px;
+  z-index: 10000;
 }
 
 .heartButton svg {

@@ -201,50 +201,50 @@ const CategoryPage = () => {
         {products.map((a, i) => {
           return (
             <Fragment key={i}>
-              <Col
-                span={12}
-                style={{ margin: "18px 0" }}
-                onClick={() => navigate(`/detail/${a.PRODUCT_ID}`)}
-              >
-                {a.IMAGE !== "" ? (
-                  <img
-                    src={a.IMAGE}
-                    alt=""
-                    style={{ width: "100%", borderRadius: "12px" }}
-                  />
-                ) : (
-                  ""
-                )}
-                <p className="txt-md">{a.PRODUCT_NM}</p>
-                <div>
-                  <span
-                    style={{
-                      color: "#27ae60",
-                      fontWeight: 700,
-                      marginRight: "5px",
-                    }}
-                  >
-                    {a.DISCOUNTED_RATE}%
-                  </span>
-                  <del className="txt-sm" style={{ color: "#999" }}>
-                    {addComma(a.SALE_PRICE)} 원
-                  </del>
+              <Col span={12} style={{ margin: "18px 0" }}>
+                <div
+                  key={i}
+                  onClick={() => navigate(`/detail/${a.PRODUCT_ID}`)}
+                >
+                  {a.IMAGE !== "" ? (
+                    <img
+                      src={a.IMAGE}
+                      alt=""
+                      style={{ width: "100%", borderRadius: "12px" }}
+                    />
+                  ) : (
+                    ""
+                  )}
+                  <p className="txt-md">{a.PRODUCT_NM}</p>
+                  <div>
+                    <span
+                      style={{
+                        color: "#27ae60",
+                        fontWeight: 700,
+                        marginRight: "5px",
+                      }}
+                    >
+                      {a.DISCOUNTED_RATE}%
+                    </span>
+                    <del className="txt-sm" style={{ color: "#999" }}>
+                      {addComma(a.SALE_PRICE)} 원
+                    </del>
+                  </div>
+                  <p className="tit-md" style={{ fontWeight: "700" }}>
+                    {addComma((a.SALE_PRICE * (100 - a.DISCOUNTED_RATE)) / 100)}{" "}
+                    원
+                  </p>
+
+                  {a.DELIVERY_DVSN === "오늘출발" ? (
+                    <Tag color="purple">
+                      <TbTruckDelivery /> {a.DELIVERY_DVSN}
+                    </Tag>
+                  ) : null}
+
+                  {a.FREE_DELIVERY_DVSN === "무료배송" ? (
+                    <Tag color="blue">{a.FREE_DELIVERY_DVSN}</Tag>
+                  ) : null}
                 </div>
-                <p className="tit-md" style={{ fontWeight: "700" }}>
-                  {addComma((a.SALE_PRICE * (100 - a.DISCOUNTED_RATE)) / 100)}{" "}
-                  원
-                </p>
-
-                {a.DELIVERY_DVSN === "오늘출발" ? (
-                  <Tag color="purple">
-                    <TbTruckDelivery /> {a.DELIVERY_DVSN}
-                  </Tag>
-                ) : null}
-
-                {a.FREE_DELIVERY_DVSN === "무료배송" ? (
-                  <Tag color="blue">{a.FREE_DELIVERY_DVSN}</Tag>
-                ) : null}
-
                 <button className="heartButton" onClick={fillHeart}>
                   {heart ? (
                     <IoMdHeart style={{ color: "#ff4800" }} />
