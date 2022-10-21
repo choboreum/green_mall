@@ -11,19 +11,12 @@ import {
 } from "react-bootstrap";
 
 import { useParams } from "react-router-dom";
-
 import axios from "axios";
-
 import Image from "react-bootstrap/Image";
-
 import styles from "./../css/detail.module.css";
-
 import styled from "styled-components";
-
 import Detailinfo from "../components/DetailInfo";
-
 import DeliverylInfo from "../components/deliveryInfo";
-
 import DetailPopup from "../popup/detailPopup";
 import ReactHtmlParser from "react-html-parser";
 
@@ -120,6 +113,10 @@ const DetailPage = () => {
               header="장바구니 담기"
               title={productDetail.PRODUCT_NM}
               price={productDetail.SALE_PRICE}
+              sale={productDetail.DISCOUNTED_RATE}
+              delivery={productDetail.DELIVERY_DVSN}
+              freeDelivery={productDetail.FREE_DELIVERY_DVSN}
+              stock={productDetail.STOCK}
             ></DetailPopup>
           </div>
 
